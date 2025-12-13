@@ -36,6 +36,8 @@ metadata:
   name: mysql
   namespace: expense
 spec:
+  nodeSelector:
+    topology.kubernetes.io/zone: us-east-1d
   selector:
     matchLabels:
       # has to match .spec.template.metadata.labels
