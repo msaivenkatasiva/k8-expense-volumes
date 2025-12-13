@@ -52,10 +52,24 @@ spec:
         project: expense
         tier: db 
     spec:
+     # 🔑 FIXES PERMISSION ISSUE
+      securityContext:
+        fsGroup: 999
       containers:
       - name: mysql
         image: msaivenkatasiva/expense-mysql:v1.0
         imagePullPolicy: Always
+        ports:
+        - containerPort: 3306
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: ExpenseApp@1
+        - name: MYSQL_DATABASE
+          value: transactions
+        - name: MYSQL_USER
+          value: expense
+        - name: MYSQL_PASSWORD
+          value: ExpenseApp@1
         volumeMounts:
         - name: mysql
           mountPath: /var/lib/mysql
