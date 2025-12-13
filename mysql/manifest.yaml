@@ -53,7 +53,7 @@ spec:
         tier: db 
     spec:
       nodeSelector:
-        topology.kubernetes.io/zone: us-east-1b
+        topology.kubernetes.io/zone: us-east-1d
      # 🔑 FIXES PERMISSION ISSUE
       securityContext:
         fsGroup: 999
