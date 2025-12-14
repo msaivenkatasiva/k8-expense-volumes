@@ -122,7 +122,7 @@ spec:
         - name: nginx-conf
           mountPath: /etc/nginx/nginx.conf
           subPath: nginx.conf
-          readonly: true
+          readOnly: true
       volumes:
       - name: nginx-conf
         configMap:
