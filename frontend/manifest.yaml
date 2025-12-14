@@ -117,7 +117,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: msaivenkatasiva/frontend:v1.0
+        image: msaivenkatasiva/expense-frontend:v1.0
         volumeMounts:
         - name: nginx-conf
           mountPath: /etc/nginx/nginx.conf
