@@ -100,20 +100,20 @@ metadata:
   labels:
     project: expense
     component: frontend
-    tier: webtier
+    tier: web
 spec:
   replicas: 2
   selector:
     matchLabels:
       project: expense
       component: frontend
-      tier: webtier
+      tier: web
   template:
     metadata:
       labels:
         project: expense
         component: frontend
-        tier: webtier
+        tier: web
     spec:
       containers:
       - name: frontend
@@ -121,7 +121,7 @@ spec:
         volumeMounts:
         - name: nginx-conf
           mountPath: /etc/nginx/nginx.conf
-          subpath: nginx.conf
+          subPath: nginx.conf
           readonly: true
       volumes:
       - name: nginx-conf
@@ -137,11 +137,12 @@ metadata:
   name: frontend
   namespace: expense
 spec:
+  type: LoadBalancer
   selector: 
     project: expense
     component: frontend
-    tier: webtier
+    tier: web
   ports:
   - protocol: TCP
     port: 80
-    targetport: 8080
+    targetPort: 8080
